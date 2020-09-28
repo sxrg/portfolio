@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guo, Sherry</title>
-  <style>
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" type="text/css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600&display=swap');
 /* don't forget to auto-add prefixes!! */
 
     html,body {
@@ -14,12 +16,12 @@
       margin: 0px;
       padding: 0px;
       overflow-x: hidden; 
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Epilogue', sans-serif;
     }
 
     #section-1 {
-      border-bottom: 1px solid blue;
-      background-color: lightblue;
+      /* border-bottom: 1px solid blue; */
+      background-color: #164DA0;
       height: 85vh;
       width: 100vw;
     }
@@ -32,20 +34,13 @@
       height: 85vh;  
     }
 
-    #grid-2 {
-      display: grid;
-      grid-template-rows: 70px 1fr 70px;
-      grid-template-columns: 120px 1fr 120px;
-      height: 100vh;
-    }
-
 /* visible grid base template */
     .grid_left {
       grid-row-start: 1;
       grid-column-start: 1;
       grid-row-end: 4;
       grid-column-end: 2;
-      border-right: 1px solid red;
+      border-right: 1px solid #eaeaea;
     }
 
     .grid_center {
@@ -53,18 +48,8 @@
       grid-column-start: 1;
       grid-row-end: 3;
       grid-column-end: 4;
-      border-top: 1px solid red;
-      border-bottom: 1px solid red;
-    }
-    
-    .grid_center--content {
-      background-color:cadetblue;
-      grid-row-start: 2;
-      grid-column-start: 2;
-      grid-row-end: 3;
-      grid-column-end: 3;
-      border-top: 1px solid red;
-      border-bottom: 1px solid red;
+      border-top: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeaea;
     }
 
     .grid_right {
@@ -72,43 +57,108 @@
       grid-column-start: 3;
       grid-row-end: 4;
       grid-column-end: 4;
-      border-left: 1px solid red;
+      border-left: 1px solid #eaeaea;
     }
 
-    .page-1 {
+    .grid_center--content {
+      /* background-color:cadetblue; */
+      grid-row-start: 2;
+      grid-column-start: 2;
+      grid-row-end: 3;
+      grid-column-end: 3;
+      /* max-width: 1000px; */
+
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .page-1 p {
-      color: white;
-      font-size: 30pt;
+    .grid_center--slab {
+      background-color:cornsilk;
+      grid-row-start: 2;
+      grid-column-start: 2;
+      grid-row-end: 3;
+      grid-column-end: 3;
+    }
+
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      grid-auto-rows: 80px;
+      grid-auto-flow: dense;
+
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      background-color: grey;
+      border: 1px solid black;
+      grid-row: span 6;
+      grid-column: span 4;
     }
 
     #section-2 {
       border-bottom: 1px solid blue;
-      height: 100vh;
+      /* height: 100vh; */
       width: 100vw;
+    }
+
+    #grid-2 {
+      display: grid;
+      grid-template-rows: 70px 1fr 70px;
+      grid-template-columns: 120px 1fr 120px;
+    }
+
+    #icons {
+      margin-top: 5px;
+    }
+
+    #icons a{
+      color: white;
+      font-size: 25px;
+      margin-right: 5px;
+    }
+
+    #icons a:hover {
+      color: #c9c9c9;
     }
 
   </style>
 </head>
 <body>
-  <!-- Landing Section (4 rows, 3 columns) -->
+  <!-- Landing Section (flexbox in grid) -->
   <section id="section-1">  
     <div id="grid-1">
-      <div class="grid_center--content page-1">
-        <p>This is text.</p>
+      <div class="grid_center--content">
+        <div>
+          <div style="color: white; font-size: 40px; font-weight: 600">Hi! I'm Sherry,</div>
+          <div style="color: #2A8FD8; font-size: 45px;">Software Engineer</div>
+          <div id="icons">
+            <a href="https://github.com/sxrg" target="blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sherryxrguo/" target="blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://codepen.io/sherryxrg" target="blank"><i class="fab fa-codepen"></i></a>
+          </div>
+        </div>
       </div>
       <div class="grid_left"></div>
       <div class="grid_center"></div>
       <div class="grid_right"></div>
     </div>
   </section>
-  <!-- Projects Section (3 rows, 3 columns) -->
+  <!-- Projects Section (grid in grid) -->
   <section id="section-2">
     <div id="grid-2">
+      <div class="grid_center--slab">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
       <div class="grid_left"></div>
       <div class="grid_center"></div>
       <div class="grid_right"></div>

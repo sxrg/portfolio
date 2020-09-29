@@ -74,7 +74,7 @@
     }
 
     .grid_center--slab {
-      background-color:cornsilk;
+      /* background-color:cornsilk; */
       grid-row-start: 2;
       grid-column-start: 2;
       grid-row-end: 3;
@@ -93,8 +93,10 @@
     }
 
     li {
-      background-color: grey;
-      border: 1px solid black;
+      /* background-color: grey; */
+      border: 1px solid #eaeaea;
+      border-bottom: none;
+      margin-left: 25px;
       grid-row: span 1;
       grid-column: span 1;
     }
@@ -125,6 +127,14 @@
       color: #c9c9c9;
     }
 
+    .caption {
+      
+    }
+
+    .caption--topright, .caption--topleft {
+      
+    }
+
 
 /* hide the borders when view is mobile or tablet */
 /* 1100-1260: too wide; change to to like the mobile, but keep the frames */
@@ -152,7 +162,7 @@
     }
 
       .grid_center--slab {
-      background-color:cornsilk;
+      /* background-color:cornsilk; */
       grid-row-start: 2;
       grid-column-start: 2;
       grid-row-end: 3;
@@ -191,11 +201,29 @@
     <div id="grid-2">
       <div class="grid_center--slab">
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>
+            <img src="https://dummyimage.com/1000/666666/666666" height="50%" width="100%" alt="project-image-1">
+            <div class="caption">
+              <div class="caption--topleft"></div>
+              <div class="caption--topright"></div>
+              <div class="caption--bottom"></div>
+            </div>
+          </li>
+          <li>
+            <img src="https://dummyimage.com/1000/666666/666666" height="50%" width="100%" alt="project-image-1">
+          </li>
+          <li>
+            <img src="https://dummyimage.com/1000/666666/666666" height="50%" width="100%" alt="project-image-1">
+          </li>
+          <li>
+            <img src="https://dummyimage.com/1000/666666/666666" height="50%" width="100%" alt="project-image-1">
+          </li>
+          <li>
+            <img src="https://dummyimage.com/1000/666666/666666" height="50%" width="100%" alt="project-image-1">
+          </li>
+          <li>
+            <img src="https://dummyimage.com/1000/666666/666666" height="50%" width="100%" alt="project-image-1">
+          </li>
         </ul>
       </div>
       <div class="grid_left"></div>

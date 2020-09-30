@@ -33,23 +33,27 @@
       color: #c9c9c9;
     }
 
-    #section-1 {
+    .section-vh {
       /* border-bottom: 1px solid blue; */
       background-color: #164DA0;
       height: 85vh;
       width: 100vw;
     }
 
-    #grid-1 {
+    .section-vh#last {
+      background-color: rgb(247, 245, 240);
+    }
+
+    .section-stretch {
+      width: 100vw;
+    }
+
+    #grid-1, #grid-3 {
       display: grid;
       grid-template-rows: 70px 1fr 70px;
       grid-template-columns: 120px 1fr 120px;
       /* should be same as section-1 height */
       height: 85vh;  
-    }
-
-    #section-2 {
-      width: 100vw;
     }
 
     #grid-2 {
@@ -159,23 +163,22 @@
     .card_caption--left {
       font-size: 18pt;
       font-weight: 600;
-      display: flex;
-      flex-direction: column;
     }
 
     ol {
-      font-size: 14pt;
+      font-size: 12pt;
       font-weight: 400;
       list-style: none;
       padding: 0;
+      margin-top: 8px;
     }
 
     ol>li {
       display: inline;
-      line-height: 1.5em;
+      line-height: 1.8em;
       background-color: #164DA0;
       color: white;
-      padding: 3px;
+      padding: 4px;
     }
 
     .card_caption--right {
@@ -183,6 +186,9 @@
       text-align: right;
       margin-left: -1px;
       color: #666666;
+
+      display: flex;
+      flex-direction: column;
     }
 
     .card_description {
@@ -198,7 +204,7 @@
 
 @media screen and (max-width: 1100px) {
      
-     #grid-1, #grid-2 {
+     #grid-1, #grid-2, #grid-3 {
       grid-template-columns: 50px 1fr 120px;
      }
      
@@ -238,7 +244,7 @@
 </head>
 <body>
   <!-- Landing Section -->
-  <section id="section-1">  
+  <section class="section-vh">  
     <div id="grid-1">
       <div class="grid_center--content">
         <div>
@@ -257,7 +263,7 @@
     </div>
   </section>
   <!-- Projects Section -->
-  <section id="section-2">
+  <section class="section-stretch">
     <div id="grid-2">
       <div class="grid_center--slab">
         <ul>
@@ -266,13 +272,16 @@
             <div class="card_caption">
               <div class="card_caption--left">
                 <div>Stock Market Predictor</div>
+              </div>
+              <div class="card_caption--right">
+                05/2020-present
                 <ol>
                   <li>python</li>
                   <li>react native</li>
-                  <li>Xcode</li>
+                  <li>javascript</li>
+                  <li>xcode</li>
                 </ol>
               </div>
-              <div class="card_caption--right">05/2020-present</div>
             </div>
             <div class="card_description">
               Led by one of our instructors, we are creating an iOS app 
@@ -286,7 +295,13 @@
               <div class="card_caption--left">
                 <div>Respect Me Generation</div>
               </div>
-              <div class="card_caption--right">05/2020-present</div>
+              <div class="card_caption--right">
+                05/2020-present
+                <ol>
+                  <li>react.js</li>
+                  <li>javascript</li>
+                </ol>
+              </div>
             </div>
             <div class="card_description">
               A web app built for our practicum project with <i>TerraTap Technologies</i> 
@@ -297,8 +312,17 @@
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
             <div class="card_caption">
-              <div class="card_caption--left">TAIWANfest: LunarFest</div>
-              <div class="card_caption--right">12/2019</div>
+              <div class="card_caption--left">
+                <div>TAIWANfest: LunarFest</div>
+              </div>
+              <div class="card_caption--right">
+                12/2019
+                <ol>
+                  <li>xcode</li>
+                  <li>swift</li>
+                  <li>photoshop</li>
+                </ol>
+              </div>
             </div>
             <div class="card_description">
               A digital information brochure that also included quiz and point-redeeming QR code features that 
@@ -308,18 +332,35 @@
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
             <div class="card_caption">
-              <div class="card_caption--left">TAIWANfest 2020</div>
-              <div class="card_caption--right">05/2020</div>
+              <div class="card_caption--left">
+                <div>TAIWANfest 2020</div>
+              </div>
+              <div class="card_caption--right">
+                05/2020
+                <ol>
+                  <li>figma</li>
+                  <li>photoshop</li>
+                </ol>
+              </div>
             </div>
             <div class="card_description">
-              I was tasked with designing the initial wireframes and UI for this project.
+              I was tasked with designing the initial figma wireframes and UI for this project.
             </div>
           </li>
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
             <div class="card_caption">
-              <div class="card_caption--left">Parked</div>
-              <div class="card_caption--right">05/2019</div>
+              <div class="card_caption--left">
+                <div>Parked</div>
+              </div>
+              <div class="card_caption--right">
+                05/2019
+                <ol>
+                  <li>node.js/express</li>
+                  <li>javascript</li>
+                  <li>css (sass)</li>
+                </ol>
+              </div>
             </div>
             <div class="card_description">
               We built the prototype of a web app that lets drivers find and pay for parking
@@ -329,8 +370,15 @@
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
             <div class="card_caption">
-              <div class="card_caption--left">SafeBike</div>
-              <div class="card_caption--right">09/2019</div>
+              <div class="card_caption--left">
+                <div>Game of Life</div>
+              </div>
+              <div class="card_caption--right">
+                10/2019 - 11/2019
+                <ol>
+                  <li>Java</li>
+                </ol>
+              </div>
             </div>
             <div class="card_description">
               A web app built during VanHacks that would let first responders
@@ -342,6 +390,15 @@
         </ul>
       </div>
       <div class="grid_left"><p>Projects</p></div>
+      <div class="grid_center"></div>
+      <div class="grid_right"></div>
+    </div>
+  </section>
+  <!-- about me -->
+  <section class="section-vh" id="last">
+    <div id="grid-3">
+      <div class="grid_center--content"></div>
+      <div class="grid_left"></div>
       <div class="grid_center"></div>
       <div class="grid_right"></div>
     </div>

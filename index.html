@@ -129,8 +129,12 @@
       flex: 1;
     }
 
-    .card_caption--left {
+    .card_caption--right, .card_caption--left, .card_description {
+      padding: 10px;
+    }
 
+    .card_caption--left {
+      font-weight: 600;
     }
 
     .card_caption--right {
@@ -147,8 +151,6 @@
     }
 
     #section-2 {
-      border-bottom: 1px solid blue;
-      /* height: 100vh; */
       width: 100vw;
     }
 
@@ -159,13 +161,13 @@
     }
 
     #icons {
-      margin-top: 5px;
+      margin-top: 15px;
     }
 
     #icons a{
       color: white;
       font-size: 25px;
-      margin-right: 5px;
+      margin-right: 10px;
     }
 
     #icons a:hover {
@@ -177,13 +179,30 @@
 /* 1100-1260: too wide; change to to like the mobile, but keep the frames */
 
 @media screen and (max-width: 1100px) {
-      .grid_left, .grid_right {
+     
+     #grid-1, #grid-2 {
+      grid-template-columns: 50px 1fr 120px;
+     }
+     
+     .grid_right, .grid_center {
         display: none;
       }
 
+      #grid-1>.grid_left {
+        display: none;
+      }
+
+      .grid_left > p {
+      text-align: right;
+      transform: rotate(90deg);
+      font-size: 30px;
+      margin-left: -20px;
+      padding-left: -20px;
+    }
+
       .grid_center--slab {
-        grid-row-start: 2;
-        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-column-start: 2;
         grid-row-end: 4;
         grid-column-end: 4;
       }
@@ -192,11 +211,10 @@
         grid-auto-rows: 800px;
       }
 
-      /* ul li:nth-child(odd) {
+      li {
         margin-left: 0px;
-      } */
+      }
 }
-
 
   </style>
 </head>
@@ -268,8 +286,8 @@
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
             <div class="card_caption">
-              <div class="card_caption--left">Bloom: Cherry blossom map</div>
-              <div class="card_caption--right">0</div>
+              <div class="card_caption--left">SafeBike</div>
+              <div class="card_caption--right">09/2019</div>
             </div>
             <div class="card_description"></div>
           </li>

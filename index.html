@@ -19,6 +19,20 @@
       font-family: 'Epilogue', sans-serif;
     }
 
+    #icons {
+      margin-top: 15px;
+    }
+
+    #icons a{
+      color: white;
+      font-size: 25px;
+      margin-right: 10px;
+    }
+
+    #icons a:hover {
+      color: #c9c9c9;
+    }
+
     #section-1 {
       /* border-bottom: 1px solid blue; */
       background-color: #164DA0;
@@ -32,6 +46,16 @@
       grid-template-columns: 120px 1fr 120px;
       /* should be same as section-1 height */
       height: 85vh;  
+    }
+
+    #section-2 {
+      width: 100vw;
+    }
+
+    #grid-2 {
+      display: grid;
+      grid-template-rows: 70px 1fr 70px;
+      grid-template-columns: 120px 1fr 120px;
     }
 
 /* visible grid base template */
@@ -100,7 +124,7 @@
       margin: 0;
     }
 
-    li {
+    ul>li {
       /* background-color: grey; */
       border: 1px solid #eaeaea;
       /* border-bottom: none; */
@@ -119,13 +143,12 @@
 
     .card_caption {
       display: flex;
-
       flex: 0.2;
       /* background-color: red; */
     }
 
     .card_caption--right, .card_caption--left {
-      border:1px solid black;
+      border: 1px solid black;
       flex: 1;
     }
 
@@ -134,44 +157,39 @@
     }
 
     .card_caption--left {
+      font-size: 18pt;
       font-weight: 600;
+      display: flex;
+      flex-direction: column;
+    }
+
+    ol {
+      font-size: 14pt;
+      font-weight: 400;
+      list-style: none;
+      padding: 0;
+    }
+
+    ol>li {
+      display: inline;
+      line-height: 1.5em;
+      background-color: #164DA0;
+      color: white;
+      padding: 3px;
     }
 
     .card_caption--right {
+      display: inline;
       text-align: right;
-    }
-
-    .card_description {
-      flex: 0.3;
-
-    }
-
-    .card_description > span {
+      margin-left: -1px;
       color: #666666;
     }
 
-    #section-2 {
-      width: 100vw;
-    }
-
-    #grid-2 {
-      display: grid;
-      grid-template-rows: 70px 1fr 70px;
-      grid-template-columns: 120px 1fr 120px;
-    }
-
-    #icons {
-      margin-top: 15px;
-    }
-
-    #icons a{
-      color: white;
-      font-size: 25px;
-      margin-right: 10px;
-    }
-
-    #icons a:hover {
-      color: #c9c9c9;
+    .card_description {
+      border: 1px solid black;
+      flex: 0.3;
+      margin-top: -1px;
+      line-height: 1.5em;
     }
 
 
@@ -198,7 +216,7 @@
       font-size: 30px;
       margin-left: -20px;
       padding-left: -20px;
-    }
+      }
 
       .grid_center--slab {
         grid-row-start: 1;
@@ -211,7 +229,7 @@
         grid-auto-rows: 800px;
       }
 
-      li {
+      ul>li {
         margin-left: 0px;
       }
 }
@@ -219,7 +237,7 @@
   </style>
 </head>
 <body>
-  <!-- Landing Section (flexbox in grid) -->
+  <!-- Landing Section -->
   <section id="section-1">  
     <div id="grid-1">
       <div class="grid_center--content">
@@ -238,7 +256,7 @@
       <div class="grid_right"></div>
     </div>
   </section>
-  <!-- Projects Section (grid in grid) -->
+  <!-- Projects Section -->
   <section id="section-2">
     <div id="grid-2">
       <div class="grid_center--slab">
@@ -246,34 +264,56 @@
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
             <div class="card_caption">
-              <div class="card_caption--left">Stock Market Predictor</div>
+              <div class="card_caption--left">
+                <div>Stock Market Predictor</div>
+                <ol>
+                  <li>python</li>
+                  <li>react native</li>
+                  <li>Xcode</li>
+                </ol>
+              </div>
               <div class="card_caption--right">05/2020-present</div>
             </div>
-            <div class="card_description"><span>(WebApp)</span>this is some text</div>
+            <div class="card_description">
+              Led by one of our instructors, we are creating an iOS app 
+              that predicts the stock prices using machine learning, 
+              using Tensorflow and python's Keras library. 
+            </div>
           </li>
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
             <div class="card_caption">
-              <div class="card_caption--left">Respect Me Generation</div>
+              <div class="card_caption--left">
+                <div>Respect Me Generation</div>
+              </div>
               <div class="card_caption--right">05/2020-present</div>
             </div>
-            <div class="card_description"></div>
-          </li>
-          <li>
-            <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
-            <div class="card_caption">
-              <div class="card_caption--left">TAIWANfest: Lunar Festival</div>
-              <div class="card_caption--right">12/2019</div>
+            <div class="card_description">
+              A web app built for our practicum project with <i>TerraTap Technologies</i> 
+              that will become an safe online community 
+              for young adolescents to share their experiences and tips.
             </div>
-            <div class="card_description"></div>
           </li>
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
             <div class="card_caption">
               <div class="card_caption--left">TAIWANfest: LunarFest</div>
+              <div class="card_caption--right">12/2019</div>
+            </div>
+            <div class="card_description">
+              A digital information brochure that also included quiz and point-redeeming QR code features that 
+              could also be used onsite for the TAIWANfest celebrations in Vancouver and Toronto.
+            </div>
+          </li>
+          <li>
+            <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
+            <div class="card_caption">
+              <div class="card_caption--left">TAIWANfest 2020</div>
               <div class="card_caption--right">05/2020</div>
             </div>
-            <div class="card_description"></div>
+            <div class="card_description">
+              I was tasked with designing the initial wireframes and UI for this project.
+            </div>
           </li>
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
@@ -281,7 +321,10 @@
               <div class="card_caption--left">Parked</div>
               <div class="card_caption--right">05/2019</div>
             </div>
-            <div class="card_description"></div>
+            <div class="card_description">
+              We built the prototype of a web app that lets drivers find and pay for parking
+              with multiple providers on our site without the need to download specific apps.
+            </div>
           </li>
           <li>
             <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
@@ -289,7 +332,11 @@
               <div class="card_caption--left">SafeBike</div>
               <div class="card_caption--right">09/2019</div>
             </div>
-            <div class="card_description"></div>
+            <div class="card_description">
+              A web app built during VanHacks that would let first responders
+              find injured bikers or runners during a marathon and respond to their call.
+              This app was partly inspired by my own experiences as a first responder. 
+            </div>
           </li>
           
         </ul>

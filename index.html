@@ -6,245 +6,8 @@
   <title>Guo, Sherry</title>
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" type="text/css" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600&display=swap');
-/* don't forget to auto-add prefixes!! */
-
-    html,body {
-      width: 100%;
-      height: 100%;
-      margin: 0px;
-      padding: 0px;
-      overflow-x: hidden; 
-      font-family: 'Epilogue', sans-serif;
-    }
-
-    #icons {
-      margin-top: 15px;
-    }
-
-    #icons a{
-      color: white;
-      font-size: 25px;
-      margin-right: 10px;
-    }
-
-    #icons a:hover {
-      color: #c9c9c9;
-    }
-
-    .section-vh {
-      background-color: #164DA0;
-      height: 85vh;
-      width: 100vw;
-    }
-
-    .section-vh#last {
-      /* background-color: rgb(247, 245, 240); */
-      background-color: white;
-    }
-
-    .section-stretch {
-      width: 100vw;
-      border-bottom: 1px solid #eaeaea;
-    }
-
-    #grid-1, #grid-3 {
-      display: grid;
-      grid-template-rows: 70px 1fr 70px;
-      grid-template-columns: 120px 1fr 120px;
-      /* should be same as section-1 height */
-      height: 85vh;  
-    }
-
-    #grid-2 {
-      display: grid;
-      grid-template-rows: 70px 1fr 70px;
-      grid-template-columns: 120px 1fr 120px;
-    }
-
-/* visible grid base template */
-    .grid_left {
-      grid-row-start: 1;
-      grid-column-start: 1;
-      grid-row-end: 4;
-      grid-column-end: 2;
-      border-right: 1px solid #eaeaea;
-    }
-
-    .grid_center {
-      grid-row-start: 2;
-      grid-column-start: 1;
-      grid-row-end: 3;
-      grid-column-end: 4;
-      border-top: 1px solid #eaeaea;
-      border-bottom: 1px solid #eaeaea;
-    }
-
-    .grid_right {
-      grid-row-start: 1;
-      grid-column-start: 3;
-      grid-row-end: 4;
-      grid-column-end: 4;
-      border-left: 1px solid #eaeaea;
-    }
-
-    .grid_center--content {
-      grid-row-start: 2;
-      grid-column-start: 2;
-      grid-row-end: 3;
-      grid-column-end: 3;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about {
-      width: 400px;
-      margin: 0 auto;
-      text-align: center;
-      line-height: 1.8em;
-      font-size: 11pt;
-    }
-
-    .grid_center--slab {
-      /* background-color:cornsilk; */
-      grid-row-start: 2;
-      grid-column-start: 2;
-      grid-row-end: 3;
-      grid-column-end: 3;
-    }
-
-    .grid_left > p {
-      text-align: right;
-      transform: rotate(90deg);
-      font-size: 50px;
-      margin-left: -70px;
-      padding-left: 20px;
-    }
-
-    ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-      grid-auto-rows: 500px;
-      grid-auto-flow: dense;
-
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    ul>li {
-      border: 1px solid #eaeaea;
-      margin-left: 25px;
-      grid-row: span 1;
-      grid-column: span 1;
-
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card_img {
-      flex: 0.5;
-      overflow: hidden;
-    }
-
-    .card_caption {
-      display: flex;
-      flex: 0.2;
-    }
-
-    .card_caption--right, .card_caption--left {
-      border: 1px solid black;
-      flex: 1;
-    }
-
-    .card_caption--right, .card_caption--left, .card_description {
-      padding: 10px;
-    }
-
-    .card_caption--left {
-      font-size: 18pt;
-      font-weight: 600;
-    }
-
-    ol {
-      font-size: 12pt;
-      font-weight: 400;
-      list-style: none;
-      padding: 0;
-      margin-top: 8px;
-    }
-
-    ol>li {
-      display: inline;
-      line-height: 1.8em;
-      background-color: #164DA0;
-      color: white;
-      padding: 4px;
-    }
-
-    .card_caption--right {
-      display: inline;
-      text-align: right;
-      margin-left: -1px;
-      color: #666666;
-
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card_description {
-      border: 1px solid black;
-      flex: 0.3;
-      margin-top: -1px;
-      line-height: 1.5em;
-    }
-
-
-/* hide the borders when view is mobile or tablet */
-/* 1100-1260: too wide; change to to like the mobile, but keep the frames */
-
-@media screen and (max-width: 1100px) {
-     
-     #grid-1, #grid-2, #grid-3 {
-      grid-template-columns: 50px 1fr 120px;
-     }
-     
-     .grid_right, .grid_center {
-        display: none;
-      }
-
-      #grid-1>.grid_left {
-        display: none;
-      }
-
-      .grid_left > p {
-      text-align: right;
-      transform: rotate(90deg);
-      font-size: 30px;
-      margin-left: -20px;
-      padding-left: -20px;
-      }
-
-      .grid_center--slab {
-        grid-row-start: 1;
-        grid-column-start: 2;
-        grid-row-end: 4;
-        grid-column-end: 4;
-      }
-
-      ul {
-        grid-auto-rows: 800px;
-      }
-
-      ul>li {
-        margin-left: 0px;
-      }
-}
-
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="colorful-squares.css">
 </head>
 <body>
   <!-- Landing Section -->
@@ -252,8 +15,8 @@
     <div id="grid-1">
       <div class="grid_center--content">
         <div>
-          <div style="color: white; font-size: 40px; font-weight: 600">Hi! I'm Sherry,</div>
-          <div style="color: #2A8FD8; font-size: 45px;">Software Engineer</div>
+          <div id="name">Hi! I'm Sherry,</div>
+          <div id="role">Software Engineer</div>
           <div id="icons">
             <a href="https://github.com/sxrg" target="blank"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/sherryxrguo/" target="blank"><i class="fab fa-linkedin-in"></i></a>
@@ -272,10 +35,10 @@
       <div class="grid_center--slab">
         <ul>
           <li>
-            <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
+            <div class="card_img" id="stocks"></div>
             <div class="card_caption">
               <div class="card_caption--left">
-                <div>Stock Market Predictor</div>
+                <a href="https://github.com/sxrg/SMPmodel" target="blank">Stock Market Predictor</a>
               </div>
               <div class="card_caption--right">
                 05/2020-present
@@ -291,13 +54,14 @@
               Led by one of our instructors, we are creating an iOS app 
               that predicts the stock prices using machine learning, 
               using Tensorflow and python's Keras library. 
+              <span>(note: the app source code is private; I have linked the ml-related functions I wrote.)</span>
             </div>
           </li>
           <li>
-            <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
+            <div class="card_img" id="respect"></div>
             <div class="card_caption">
               <div class="card_caption--left">
-                <div>Respect Me Generation</div>
+                <a href="https://github.com/yunseonghur/respect_me_generation/" target="blank">Respect Me Generation</a>
               </div>
               <div class="card_caption--right">
                 05/2020-present
@@ -314,10 +78,10 @@
             </div>
           </li>
           <li>
-            <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
+            <div class="card_img" id="lunar"></div>
             <div class="card_caption">
               <div class="card_caption--left">
-                <div>TAIWANfest: LunarFest</div>
+                <a href="https://lunarfest.org/2020lf/gta/lunar-fun/" target="blank">TAIWANfest: LunarFest</a>
               </div>
               <div class="card_caption--right">
                 12/2019
@@ -331,31 +95,52 @@
             <div class="card_description">
               A digital information brochure that also included quiz and point-redeeming QR code features that 
               could also be used onsite for the TAIWANfest celebrations in Vancouver and Toronto.
+              I was also responsible for design of the AppIcon.
             </div>
           </li>
           <li>
-            <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
+            <div class="card_img" id="safebike"></div>
             <div class="card_caption">
               <div class="card_caption--left">
-                <div>TAIWANfest 2020</div>
+                <a href="https://github.com/sxrg/SafeBike" target="blank">SafeBike</a>
               </div>
               <div class="card_caption--right">
-                05/2020
+                09/2019
                 <ol>
-                  <li>figma</li>
-                  <li>photoshop</li>
+                  <li>css (scss)</li>
+                  <li>javascript</li>
                 </ol>
               </div>
             </div>
             <div class="card_description">
-              I was tasked with designing the initial figma wireframes and UI for this project.
+              SafeBike was created during a 24hr hackathon that would allow marathon participants
+              to stay safe by being connected to first aid personnel via our webapp.
+              Partly inspired by my own experiences as a first responder.
             </div>
           </li>
           <li>
-            <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
+            <div class="card_img" id="gol"></div>            
+              <div class="card_caption">
+              <div class="card_caption--left">
+                <a href="https://github.com/sxrg/GameOfLife" target="blank">Game of Life</a>
+              </div>
+              <div class="card_caption--right">
+                10/2019 - 11/2019
+                <ol>
+                  <li>Java</li>
+                </ol>
+              </div>
+            </div>
+            <div class="card_description">
+              A colorful variant of conway's game of life 
+              with plants, herbivores and carnivores.
+            </div>
+          </li>
+          <li>
+            <div class="card_img" id="parked"></div>
             <div class="card_caption">
               <div class="card_caption--left">
-                <div>Parked</div>
+                <a href="http://team12comp2930.herokuapp.com/" target="blank">Parked</a>
               </div>
               <div class="card_caption--right">
                 05/2019
@@ -371,28 +156,6 @@
               with multiple providers on our site without the need to download specific apps.
             </div>
           </li>
-          <li>
-            <img class="card_img" src="https://dummyimage.com/1000/666666/666666" alt="project-image-1">
-            <div class="card_caption">
-              <div class="card_caption--left">
-                <div>Game of Life</div>
-              </div>
-              <div class="card_caption--right">
-                10/2019 - 11/2019
-                <ol>
-                  <li>Java</li>
-                </ol>
-              </div>
-            </div>
-            <div class="card_description">
-              A colorful variant of conway's game of life 
-              with plants, herbivores and carnivores.
-              <!-- A web app built during VanHacks that would let first responders
-              find injured bikers or runners during a marathon and respond to their call.
-              This app was partly inspired by my own experiences as a first responder.  -->
-            </div>
-          </li>
-          
         </ul>
       </div>
       <div class="grid_left"><p>Projects</p></div>

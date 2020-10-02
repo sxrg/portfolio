@@ -157,27 +157,27 @@
     }
 
     #respect {
-      background-image: url(imgs/respect.jpg);
+      background-image: url(../imgs/respect.jpg);
     }
 
     #lunar {
-      background-image: url(imgs/lunar.jpg);
+      background-image: url(../imgs/lunar.jpg);
     }
 
     #safebike {
-      background-image: url(imgs/safebike.png);
+      background-image: url(../imgs/safebike.png);
     }
 
     #gol {
-      background-image: url(imgs/GOL.gif);
+      background-image: url(../imgs/GOL.gif);
     }
 
     #parked {
-      background-image: url(imgs/parked.png);
+      background-image: url(../imgs/parked.png);
     }
 
     #stocks {
-      background-image: url(imgs/stocks.png);
+      background-image: url(../imgs/stocks.png);
     }
 
     .card_caption {

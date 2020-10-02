@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 2</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #recipe-container {
+      border: 1px solid green;
+      margin-top: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="button-container"></div>
+  <div id="recipe-container"></div>
+  <script>
+    // --- PART A
+    const btnContainer = document.getElementById('button-container');
+
+    const generateButtons = (numButtons) => {
+      if (numButtons === 0) {
+        const noButtonMessage = document.createTextNode("Generated 0 buttons.");
+        btnContainer.appendChild(noButtonMessage);
+      } else {
+        for (let i = 0; i < numButtons; i++) {
+          const btn = document.createElement("button");
+
+          let label = String.fromCharCode(i+65);
+          let btnText = document.createTextNode(label);
+          
+          btn.setAttribute("style", "margin: 5px")
+          btn.onclick = () => console.log("Button " + label + " was clicked!");
+          btn.appendChild(btnText)
+        
+          btnContainer.appendChild(btn);
+        } 
+      }
+    }
+
+    let numberButtons = 0;
+
+    do {
+      const input = window.prompt("How many buttons would you like? (1-26)");
+      numberButtons = parseInt(input, 10); 
+    } while (numberButtons > 26);
+    
+    generateButtons(numberButtons);
+
+  </script>
+    
+  <script>
+    // --- PART B
+    const recipeContainer = document.getElementById('recipe-container');
+
+    function myRecipe(title, servings, ingredients) {
+      this.myTitle = title;   // string
+      this.myServings = servings;   // number
+      this.myIngredients = ingredients;   // array
+
+      this.print = () => {
+        const displayTitle = document.createElement('div');
+        displayTitle.setAttribute("style", "font-weight: 600");
+        const titleTxt = document.createTextNode(this.myTitle); 
+        displayTitle.appendChild(titleTxt);
+
+        const displayServings = document.createElement('div');
+        const servingsTxt = document.createTextNode("Serves: " + this.myServings);
+        displayServings.appendChild(servingsTxt);
+
+        const ingred = document.createElement('div');
+        const ingredTxt = document.createTextNode("Ingredients: ");
+        ingred.appendChild(ingredTxt);
+
+        const ingredientList = document.createElement('ul');
+        this.myIngredients.forEach(function(ingredient) {
+          const node = document.createElement('li');
+          let txt = document.createTextNode(ingredient);
+          node.appendChild(txt);
+          ingredientList.appendChild(node); 
+        });
+      
+        recipeContainer.append(displayTitle, displayServings, ingred, ingredientList);
+      }
+    }
+
+    const stew = new myRecipe("Goulash", 10, ["potato", "beef", "carrot", "bayleaf"]);
+    stew.print();
+
+  </script>
+</body>
+</html>

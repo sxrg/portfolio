@@ -34,18 +34,19 @@
     }
 
     .section-vh {
-      /* border-bottom: 1px solid blue; */
       background-color: #164DA0;
       height: 85vh;
       width: 100vw;
     }
 
     .section-vh#last {
-      background-color: rgb(247, 245, 240);
+      /* background-color: rgb(247, 245, 240); */
+      background-color: white;
     }
 
     .section-stretch {
       width: 100vw;
+      border-bottom: 1px solid #eaeaea;
     }
 
     #grid-1, #grid-3 {
@@ -89,16 +90,22 @@
     }
 
     .grid_center--content {
-      /* background-color:cadetblue; */
       grid-row-start: 2;
       grid-column-start: 2;
       grid-row-end: 3;
       grid-column-end: 3;
-      /* max-width: 1000px; */
 
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .about {
+      width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.8em;
+      font-size: 11pt;
     }
 
     .grid_center--slab {
@@ -129,9 +136,7 @@
     }
 
     ul>li {
-      /* background-color: grey; */
       border: 1px solid #eaeaea;
-      /* border-bottom: none; */
       margin-left: 25px;
       grid-row: span 1;
       grid-column: span 1;
@@ -148,7 +153,6 @@
     .card_caption {
       display: flex;
       flex: 0.2;
-      /* background-color: red; */
     }
 
     .card_caption--right, .card_caption--left {
@@ -381,9 +385,11 @@
               </div>
             </div>
             <div class="card_description">
-              A web app built during VanHacks that would let first responders
+              A colorful variant of conway's game of life 
+              with plants, herbivores and carnivores.
+              <!-- A web app built during VanHacks that would let first responders
               find injured bikers or runners during a marathon and respond to their call.
-              This app was partly inspired by my own experiences as a first responder. 
+              This app was partly inspired by my own experiences as a first responder.  -->
             </div>
           </li>
           
@@ -397,7 +403,17 @@
   <!-- about me -->
   <section class="section-vh" id="last">
     <div id="grid-3">
-      <div class="grid_center--content"></div>
+      <div class="grid_center--content">
+        <div class="about">
+          A compsci student from Vancouver who <i>loves</i> 
+          pairing up solid code with well thought-out designs.<br><br>
+          After completing her undergrad in neuroscience at UBC in 2018, 
+          she decided to steer into foreign territory. 
+          Yet, it was something she has always been distracted by since highschool – computer science.
+          When not otherwise attached to a screen of some sort, 
+          she also enjoys a good hike or bouldering at The Hive with her friends.
+        </div>
+      </div>
       <div class="grid_left"></div>
       <div class="grid_center"></div>
       <div class="grid_right"></div>

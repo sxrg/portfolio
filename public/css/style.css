@@ -20,18 +20,30 @@
       color: #2A8FD8; font-size: 45px;
     }
 
-    #icons {
+    .icons {
       margin-top: 15px;
     }
 
-    #icons a{
+    .icons a{
       color: white;
       font-size: 25px;
       margin-right: 10px;
     }
 
-    #icons a:hover {
+    .icons a:hover {
       color: #c9c9c9;
+    }
+
+    .card_caption--left>.icons {
+      margin-top: 10px;
+    }
+
+    .card_caption--left>.icons a {
+      color: black;
+    }
+
+    .card_caption--left>.icons a:hover {
+      color: #164DA0;
     }
 
 /* sections */
@@ -137,47 +149,57 @@
       margin: 0;
     }
 
+    /* each li is a card */
     ul>li {
       border: 1px solid #eaeaea;
       margin-left: 25px;
+      margin-bottom: 20px; 
       grid-row: span 1;
       grid-column: span 1;
 
       display: flex;
       flex-direction: column;
+      /* filter: grayscale(100%); */
     }
+
+    /* ul>li:hover {
+      filter: none;
+    } */
 
 /* portfolio project cards */
     .card_img {
       background-size: cover;
+      /* background-blend-mode: multiply; */
+
       flex: 0.5;
       overflow: hidden;
       border: 1px solid black;
       border-bottom: none;
+      /* filter: grayscale(100%); */
     }
 
     #respect {
-      background-image: url(../imgs/respect.jpg);
+      background-image: url(../imgs/respect.jpg), linear-gradient(to bottom, white, rgb(82, 82, 82));
     }
 
     #lunar {
-      background-image: url(../imgs/lunar.jpg);
+      background-image: url(../imgs/lunar.jpg), linear-gradient(to bottom, white, rgb(82, 82, 82));
     }
 
     #safebike {
-      background-image: url(../imgs/safebike.png);
+      background-image: url(../imgs/safebike.png), linear-gradient(to bottom, white, rgb(82, 82, 82));
     }
 
     #gol {
-      background-image: url(../imgs/GOL.gif);
+      background-image: url(../imgs/GOL.gif), linear-gradient(to bottom, white, rgb(82, 82, 82));
     }
 
     #parked {
-      background-image: url(../imgs/parked.png);
+      background-image: url(../imgs/parked.png), linear-gradient(to bottom, white, rgb(82, 82, 82));
     }
 
     #stocks {
-      background-image: url(../imgs/stocks.png);
+      background-image: url(../imgs/stocks.png), linear-gradient(to bottom, white, rgb(82, 82, 82));
     }
 
     .card_caption {

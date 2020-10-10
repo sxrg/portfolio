@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    li {
+      margin: 30px;
+    }
+
+    input {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz</h1>
+  <ol>
+    <li>
+      <p>What does <i>this</i> in <b>name : function() {return this.firstName;}</b> refer to?</p>
+      <input type="radio" name="one" value="a">a.) the function itself<br>
+      <input type="radio" name="one" value="b">b.) the object calling the function<br>
+      <input type="radio" name="one" value="c">c.) the global object<br>
+      <input type="radio" name="one" value="d">d.) whichever object was the caller<br>
+    </li>
+    <li>
+      <p>How is <i>this</i> different when used in an arrow function?</p>
+      <input type="radio" name="two" value="a">a.) It depends on what its bound to<br>
+      <input type="radio" name="two" value="b">b.) It refers to the caller<br>
+      <input type="radio" name="two" value="c">c.) It always refers to the owner, even if its not the caller<br>
+      <input type="radio" name="two" value="d">d.) A and C<br>
+    </li>
+    <li>
+      <p>What will get printed in <b>document.getElementById("btn").addEventListener("click", hello)</b>
+        <br>if the hello function console logs <i>this</i>?
+      </p>
+      <input type="radio" name="three" value="a">a.) Nothing<br>
+      <input type="radio" name="three" value="b">b.) Window<br>
+      <input type="radio" name="three" value="c">c.) Button<br>
+      <input type="radio" name="three" value="d">d.) B and C are both logged<br>
+    </li>
+    <li>
+      <p>In what case will <i>this</i> refer to the global object?</p>
+      <input type="radio" name="four" value="a">a.) When used by itself, outside of any function<br>
+      <input type="radio" name="four" value="b">b.) It never refers to the global object<br>
+      <input type="radio" name="four" value="c">c.) When assigned to a global variable<br>
+      <input type="radio" name="four" value="d">d.) In the context of event handlers<br>
+    </li>
+    <li>
+      <p>What does <i>this</i> refer to in <b>onclick="this.style.color='red'"</b></p>
+      <input type="radio" name="color" value="a">a.) The global object<br>
+      <input type="radio" name="color" value="b">b.) The owner of the function<br>
+      <input type="radio" name="color" value="c">c.) This code will generate an error.<br>
+      <input type="radio" name="color" value="d">d.) The object that received the event; in this case the button.<br>
+    </li>
+  </ol>
+  <br><br>
+</body>
+</html>

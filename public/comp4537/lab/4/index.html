@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="../../../css/style_lab4.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="nav">
+      <p id="nav_score--label">score:</p>
+      <p id="nav_score--value">0</p>
+
+      <p id="nav_trial--label">trial:</p>
+      <p id="nav_trial--value">1</p>
+
+      <p id="nav_tiles--label">tiles:</p>
+      <p id="nav_tiles--value">0</p>
+
+      <button id="nav_button--start" onclick=startGame()>START</button>
+      <button id="nav_button--start" onclick=terminate()>TERMINATE</button>
+    </div>
+    <p id="instruction">Click Start/Reset to Start Game</p>
+    <div id="box">
+      <ul id="grid">
+        <!-- dynamically added -->
+      </ul>
+    </div>
+    <p id="feedback">Welcome to the game.</p>
+  </div>
+  <audio id="sound">
+    <source src="../../../imgs/smb_coin.wav" type="audio/wav">
+  </audio>
+  <script src="./app.js"></script>
+</body>
+</html>

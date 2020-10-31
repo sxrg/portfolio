@@ -8,10 +8,21 @@ let url = require('url');
 var dir = path.join(__dirname, 'public');
 app.use(express.static(dir));
 
-// actually unnecessary; fix after lab2 gets marked 
-app.get('/lab2', (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/lab2.html"));
+// MYSQL
+const mysql = require("mysql");
+
+// Create connection and export
+export const conDB = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "glacier10",
+  database: "comp4537"
 });
+
+// actually unnecessary; fix after lab2 gets marked 
+// app.get('/lab2', (req, res) => {
+//     res.sendFile(path.join(__dirname + "/public/lab2.html"));
+// });
 
 // lab 3
 app.get('/serverTime', (req, res) => {

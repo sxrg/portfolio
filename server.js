@@ -12,7 +12,7 @@ app.use(express.static(dir));
 const mysql = require("mysql");
 
 // Create connection and export
-export const conDB = mysql.createConnection({
+const con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "glacier10",
@@ -33,6 +33,31 @@ app.get('/serverTime', (req, res) => {
     console.log(q.query);
     res.writeHead(200, {"Content-Type": "text/html", "Access-Control-Allow-Origin": "*"});
     res.end('Hello '+ q.query["name"] + ", the current server time is " + time);
+})
+
+// lab 4: read
+app.get('/readScore', (req, res) => {
+
+})
+
+// lab 4: write
+app.get('/writeScore', (req, res) => {
+    let q = url.parse(req.url, true);
+    let query = q.query;
+    console.log(query);
+
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = "INSERT INTO score(name, score) values ('John', 2900)";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+          console.log("1 record inserted");
+        });
+      });
+
+    res.writeHead(200, {"Content-Type": "text/html", "Access-Control-Allow-Origin": "*"});
+    res.end("score written.");
 })
 
 app.listen(port, function() {

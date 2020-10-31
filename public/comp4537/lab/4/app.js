@@ -298,3 +298,14 @@ function terminate() {
 const replay = () => {
     window.location.href = './index.html';
 }
+
+// database functions
+async function writeScore(score, name) {
+    const response = await fetch(`/writeScore/?name=${name}&score=${score}`)
+    try {
+        const result = await response.text();
+        console.log("score posted: " + result);
+    } catch (err) {
+        console.log(err);
+    }
+}

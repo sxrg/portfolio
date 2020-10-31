@@ -19,16 +19,16 @@
   </div>
   <button onclick=replay()>REPLAY</button>
   <script>
-    const score = sessionStorage.getItem('score');
-    console.log(score);
-    $('#scorebox').html(score);
+    const playerScore = sessionStorage.getItem('score');
+    console.log(playerScore);
+    $('#scorebox').html(playerScore);
 
     sessionStorage.setItem('score', 0);
 
     const writeDB = () => {
       const playerName = document.getElementById('myName').value;
-      console.log(playerName);
-      window.location = "./leaderboard.html"
+      writeScore(playerScore, playerName);
+      // window.location = "./leaderboard.html"
     }
   </script>
   <script src="./app.js"></script>

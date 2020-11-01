@@ -64,7 +64,7 @@ app.get('/writeScore', (req, res) => {
 
       const queryString = "INSERT INTO score(name, score) values ('John', 2900)";
 
-      connection.query(queryString, (err, res, fields) => {
+      con.query(queryString, (err, res, fields) => {
         if (err) {
           console.log('Error: ' + err);
           return;

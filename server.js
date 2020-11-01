@@ -17,13 +17,13 @@ const con = mysql.createConnection({
   database: "comp4537"
 });
 
-con.connect((err) => {
-    if (err) {
-        console.log('Connection error message: ' + err.message);
-        return;
-    }
-    console.log('Connected!')
-});
+// con.connect((err) => {
+//     if (err) {
+//         console.log('Connection error message: ' + err.message);
+//         return;
+//     }
+//     console.log('Connected!')
+// });
 
 // actually unnecessary; fix after lab2 gets marked 
 // app.get('/lab2', (req, res) => {

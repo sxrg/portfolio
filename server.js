@@ -43,10 +43,6 @@ app.get('/serverTime', (req, res) => {
 
 // lab 4: read
 app.get('/readScore', (req, res) => {
-    let q = url.parse(req.url, true);
-    let query = q.query;
-    console.log(query);
-
     const queryString = "SELECT * FROM score";
 
     con.query(queryString, (err, res, fields) => {
@@ -59,7 +55,7 @@ app.get('/readScore', (req, res) => {
     });
 
     res.writeHead(200, {"Content-Type": "text/html", "Access-Control-Allow-Origin": "*"});
-    res.end(res);
+    res.end(JSON.stringify(res));
 })
 
 // lab 4: write

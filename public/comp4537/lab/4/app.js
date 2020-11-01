@@ -311,7 +311,7 @@ async function writeScore(score, name) {
 }
 
 async function readScore() {
-    const response = await fetch(`/readScore`)
+    const response = await fetch(`/readScore/`)
     try {
         const result = await response.text();
         console.log("results: " + result);

@@ -52,17 +52,7 @@ app.get('/writeScore', (req, res) => {
     let query = q.query;
     console.log(query);
 
-    // con.connect(function(err) {
-    //     if (err) throw err;
-    //     console.log("Connected!");
-    //     var sql = "INSERT INTO score(name, score) values ('John', 2900)";
-    //     con.query(sql, function (err, result) {
-    //       if (err) throw err;
-    //       console.log("1 record inserted");
-    //     });
-    //   });
-
-      const queryString = "INSERT INTO score(name, score) values ('John', 2900)";
+      const queryString = `INSERT INTO score(name, score) values (${query['score']}, ${query['score']})`;
 
       con.query(queryString, (err, res, fields) => {
         if (err) {

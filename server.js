@@ -52,7 +52,7 @@ app.get('/writeScore', (req, res) => {
     let query = q.query;
     console.log(query);
 
-      const queryString = `INSERT INTO score(name, score) values (${query['name']}, ${query['score']})`;
+      const queryString = "INSERT INTO score(name, score) values (" + query['name'] + "," + query['score'] +")";
 
       con.query(queryString, (err, res, fields) => {
         if (err) {

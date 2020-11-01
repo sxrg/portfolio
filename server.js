@@ -17,13 +17,13 @@ const con = mysql.createConnection({
   database: "comp4537"
 });
 
-// con.connect((err) => {
-//     if (err) {
-//         console.log('Connection error message: ' + err.message);
-//         return;
-//     }
-//     console.log('Connected!')
-// });
+con.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected!')
+});
 
 // actually unnecessary; fix after lab2 gets marked 
 // app.get('/lab2', (req, res) => {
@@ -52,15 +52,26 @@ app.get('/writeScore', (req, res) => {
     let query = q.query;
     console.log(query);
 
-    con.connect(function(err) {
-        if (err) throw err;
-        console.log("Connected!");
-        var sql = "INSERT INTO score(name, score) values ('John', 2900)";
-        con.query(sql, function (err, result) {
-          if (err) throw err;
-          console.log("1 record inserted");
-        });
-      });
+    // con.connect(function(err) {
+    //     if (err) throw err;
+    //     console.log("Connected!");
+    //     var sql = "INSERT INTO score(name, score) values ('John', 2900)";
+    //     con.query(sql, function (err, result) {
+    //       if (err) throw err;
+    //       console.log("1 record inserted");
+    //     });
+    //   });
+
+      const queryString = "INSERT INTO score(name, score) values ('John', 2900)";
+
+      connection.query(queryString, (err, res, fields) => {
+        if (err) {
+          console.log('Error: ' + err);
+          return;
+        }
+        console.log('Here is the result of the query:');
+        console.log(res);
+      });      
 
     res.writeHead(200, {"Content-Type": "text/html", "Access-Control-Allow-Origin": "*"});
     res.end("score written.");

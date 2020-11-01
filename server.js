@@ -50,6 +50,7 @@ app.get('/readScore', (req, res) => {
 app.get('/writeScore', (req, res) => {
     let q = url.parse(req.url, true);
     let query = q.query;
+    console.log(query);
 
       const queryString = `INSERT INTO score(name, score) values (${query['name']}, ${query['score']})`;
 

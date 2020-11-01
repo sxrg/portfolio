@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var mysql = require('mysql');
 var path = require('path'); // use __dirname
 const port = 8080;
 let http = require('http');
@@ -7,9 +8,6 @@ let url = require('url');
 
 var dir = path.join(__dirname, 'public');
 app.use(express.static(dir));
-
-// MYSQL
-const mysql = require("mysql");
 
 // Create connection and export
 const con = mysql.createConnection({

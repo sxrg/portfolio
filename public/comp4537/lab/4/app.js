@@ -309,3 +309,13 @@ async function writeScore(score, name) {
         console.log(err);
     }
 }
+
+async function readScore() {
+    const response = await fetch(`/readScore`)
+    try {
+        const result = await response.text();
+        console.log("results: " + result);
+    } catch (err) {
+        console.log(err);
+    }
+}

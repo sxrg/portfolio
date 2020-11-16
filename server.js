@@ -3,19 +3,31 @@ var app = express();
 var mysql = require('mysql');
 var path = require('path'); // use __dirname
 const port = 8080;
-let http = require('http');
 let url = require('url');
+const bodyParser = require('body-parser');
+const { request } = require('http');
 
 var dir = path.join(__dirname, 'public');
-app.use(express.static(dir));
 
-// Create connection and export
+app.use(express.static(dir));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Create connection and export (REMOTE)
+// const con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "glacier10",
+//   database: "comp4537"
+// });
+
+// LOCAL
 const con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "glacier10",
-  database: "comp4537"
-});
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "comp4537"
+  });
 
 con.connect((err) => {
     if (err) {
@@ -24,11 +36,6 @@ con.connect((err) => {
     }
     console.log('Connected!')
 });
-
-// actually unnecessary; fix after lab2 gets marked 
-// app.get('/lab2', (req, res) => {
-//     res.sendFile(path.join(__dirname + "/public/lab2.html"));
-// });
 
 // lab 3
 app.get('/serverTime', (req, res) => {
@@ -81,4 +88,51 @@ app.get('/writeScore', (req, res) => {
 
 app.listen(port, function() {
     console.log(`listening on port ${port}`);
+});
+
+// lab 5: API -- POST definition
+app.post('/addDef', (req, res) => {
+    console.log(req.body);
+    const queryString = "INSERT INTO words(word, definition) values (" + "'" 
+                        + req.body.word + "'" + "," + "'" + req.body.definition + "'" +")";
+
+    con.query(queryString, (err, res, fields) => {
+        if (err) {
+            console.log('Error: ' + err);
+            return;
+        }
+        console.log('Here is the result of the query:');
+        console.log(res);
+    });      
+
+    res.writeHead(200, {"Content-Type": "text/html", "Access-Control-Allow-Origin": "*"});
+    res.end('...definition written!');
+});
+
+// lab 5: API -- GET definition
+app.get('/searchDef', (req, res) => {
+    let q = url.parse(req.url, true);
+    const word = q.query['word']
+
+    const queryString = `SELECT * FROM words WHERE word = ${"'" + word + "'"}`;
+
+    con.query(queryString, (err, qres, fields) => {
+        if (err) {
+          console.log('Error: ' + err);
+          return;
+        }
+
+        let wordDef = {}
+
+        wordDef['word'] = qres[0].word;
+        wordDef['definition'] = qres[0].definition;
+
+        console.log('Here is the result of the query:');
+        const defResponse = JSON.stringify(wordDef);
+        
+        console.log(defResponse);
+
+        res.writeHead(200, {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"});
+        res.end(defResponse);
+    });
 });

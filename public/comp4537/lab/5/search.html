@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search page</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Search Page</h1>
+  <input type="text" id="word" name="word" placeholder="word">
+  <br><br>
+  <div id="resultDiv"></div>
+  <br><br>
+  <button type="button" onclick="searchDefinition()">submit</button>
+  <br><br>
+  <a href="./index.html">Return to enter a definition</a>
+
+  <script>
+    searchDefinition = async () => {
+      console.log("looking up...");
+
+      const word = document.getElementById("word").value;
+      
+      try {
+        fetch(`/searchDef/?word=${word}`)
+        .then((res) => {
+          return res.json()
+        }).then((result) => {
+          
+          document.getElementById('resultDiv').innerHTML =
+            `<p><b>${result.word}</b>: ${result.definition}</p>`;
+    
+        }).catch((err) => {
+          console.log(err);
+          document.getElementById('resultDiv').innerHTML =
+            `<p>something went wrong</p>`;
+        });
+        
+      } catch (err) {
+        console.log(err);
+      }
+
+    }
+  </script>
+</body>
+</html>

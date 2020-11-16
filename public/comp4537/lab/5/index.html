@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add a Definition</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Add a Definition</h1>
+  <input type="text" id="word" name="word" placeholder="word">
+  <input type="text" id="definition" name="definition" placeholder="definition">
+  <br><br>
+  <button type="button" onclick="addDefinition()">submit</button>
+  <br><br>
+  <div id="responseBox"></div>
+  <br></br>
+  <a href="./search.html">Go to Search page</a>
+  
+  <script>
+    addDefinition = async () => {
+      console.log("submitting...");
+
+      let wordDef = {};
+      const word = document.getElementById("word").value;
+      const definition = document.getElementById("definition").value;
+      wordDef['word'] = word;
+      wordDef['definition'] = definition;
+
+      console.log(wordDef);
+
+      fetch('/addDef', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(wordDef)
+      }).then((response) => {
+        return response.text();
+      }).then((data) => {
+        console.log(data);
+        document.getElementById('responseBox').innerText = data;
+      }).catch((err) => {
+        document.getElementById('responseBox').innerText = "an error occurred";
+      });
+    }
+  </script>
+</body>
+</html>

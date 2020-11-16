@@ -26,24 +26,19 @@
 
       const word = document.getElementById("word").value;
       
-      try {
-        fetch(`/searchDef/?word=${word}`)
-        .then((res) => {
-          return res.json()
-        }).then((result) => {
-          
-          document.getElementById('resultDiv').innerHTML =
-            `<p><b>${result.word}</b>: ${result.definition}</p>`;
-    
-        }).catch((err) => {
-          console.log(err);
-          document.getElementById('resultDiv').innerHTML =
-            `<p>something went wrong</p>`;
-        });
-        
-      } catch (err) {
-        console.log(err);
-      }
+      fetch(`/searchDef/?word=${word}`)
+      .then((res) => {
+        return res.json()
+      }).then((result) => {
+
+        document.getElementById('resultDiv').innerHTML =
+          `<p><b>${result.word}</b>: ${result.definition}</p>`;
+
+      }).catch((err) => {
+        document.getElementById('resultDiv').innerHTML =
+          `<p>No such word in dictionary.</p>`;
+      });
+      
 
     }
   </script>

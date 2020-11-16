@@ -116,23 +116,25 @@ app.get('/searchDef', (req, res) => {
 
     const queryString = `SELECT * FROM words WHERE word = ${"'" + word + "'"}`;
 
-    con.query(queryString, (err, qres, fields) => {
+    con.query(queryString, (err, row, fields) => {
+        let wordDef = {};
+        
         if (err) {
           console.log('Error: ' + err);
-          return;
+        } else if (row.length) {
+            wordDef['word'] = row[0].word;
+            wordDef['definition'] = row[0].definition;
+
+            console.log('Here is the result of the query:');
+            const defResponse = JSON.stringify(wordDef);
+            
+            console.log(defResponse);
+
+            res.writeHead(200, {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"});
+            res.end(defResponse);
+        } else {
+            res.writeHead(200, {"Content-Type": "text/html", "Access-Control-Allow-Origin": "*"});
+            res.end("Query didn't return any results");
         }
-
-        let wordDef = {}
-
-        wordDef['word'] = qres[0].word;
-        wordDef['definition'] = qres[0].definition;
-
-        console.log('Here is the result of the query:');
-        const defResponse = JSON.stringify(wordDef);
-        
-        console.log(defResponse);
-
-        res.writeHead(200, {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"});
-        res.end(defResponse);
     });
 });

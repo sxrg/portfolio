@@ -14,20 +14,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Create connection and export (REMOTE)
-// const con = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "glacier10",
-//   database: "comp4537"
-// });
+const con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "glacier10",
+  database: "comp4537"
+});
 
 // LOCAL
-const con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "comp4537"
-  });
+// const con = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "comp4537"
+//   });
 
 con.connect((err) => {
     if (err) {
